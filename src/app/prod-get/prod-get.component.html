@@ -1,0 +1,38 @@
+<div id="productsContainer">
+    <div class="container-fluid col-md-9 card mt-5">
+        <div class="card-body table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Description</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">POCO F1</th>
+                        <td>Master of Speed</td>
+                        <td>21999</td>
+                        <td>
+                            <a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a>
+
+                            <a (click)="deleteProduct(product._id)" class="btn btn-danger float-right">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">MacBook Pro</th>
+                        <td>Stylish, lighweight Laptop</td>
+                        <td>106500</td>
+                        <td>
+                            <a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a>
+                            
+                            <a (click)="deleteProduct(product._id)" class="btn btn-danger float-right">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
