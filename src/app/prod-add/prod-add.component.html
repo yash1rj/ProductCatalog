@@ -1,0 +1,37 @@
+<div id="productAddContainer">
+    <div class="container-fluid col-md-9 card mt-5">
+        <form class="form-prodAdd card-body" [formGroup]="prodAddForm" (ngSubmit)="onSubmit()">
+            <h1 class="h3 mb-4 font-weight-normal">Add Product</h1>
+
+            <div class="form-group">
+                <label for="prodname" class="sr-only mt-1">Product Name</label>
+                <input type="text" id="prodname" class="form-control" formControlName="prodname"
+                    placeholder="Product Name">
+                <p *ngIf="(prodAddForm.controls.prodname.dirty || prodAddForm.controls.prodname.touched) && this.prodAddForm.controls.prodname.errors"
+                    class="text-danger">
+                    Product name is required with atleast 3 characters</p>
+            </div>
+
+            <div class="form-group">
+                <label for="proddesc" class="sr-only mt-1">Product Description</label>
+                <textarea rows="7" cols="5" id="proddesc" class="form-control" formControlName="proddesc"
+                    placeholder="Product Description"></textarea>
+                <p *ngIf="(prodAddForm.controls.proddesc.dirty || prodAddForm.controls.proddesc.touched) && this.prodAddForm.controls.proddesc.errors"
+                    class="text-danger">
+                    Product description is required with atleast 3 characters</p>
+            </div>
+
+            <div class="form-group">
+                <label for="prodprice" class="sr-only mt-1">Product Price</label>
+                <input type="number" id="prodprice" class="form-control" formControlName="prodprice"
+                    placeholder="Product Price">
+                <p *ngIf="(prodAddForm.controls.prodprice.dirty || prodAddForm.controls.prodprice.touched) && this.prodAddForm.controls.prodprice.errors"
+                    class="text-danger">
+                    Product price is required</p>
+            </div>
+
+            <button class="btn btn-warning btn-block mt-4" type="submit" [disabled]="!prodAddForm.valid">Create
+                Product</button>
+        </form>
+    </div>
+</div>
