@@ -1,0 +1,9 @@
+.brand {
+    background-color: #A7288A;
+    border-radius: 19px;
+}
+
+.activeYes {
+    font-weight: bold !important;
+    color: rgb(71, 22, 60) !important;
+}
