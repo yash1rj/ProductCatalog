@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-prod-get',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdGetComponent implements OnInit {
 
-  constructor() { }
+  products: any[];
+  constructor(private ps: ProductsService) { }
 
   ngOnInit() {
+    this.ps.getAllProducts()
+      .subscribe((data: any[]) => {
+        this.products = data;
+      });
+  }
+
+  deleteProduct(id) {
+    this.ps.deleteProduct(id).subscribe(res => {
+      this.products.splice(id, 1);
+    });
   }
 
 }
