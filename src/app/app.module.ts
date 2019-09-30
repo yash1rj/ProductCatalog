@@ -8,6 +8,8 @@ import { ProdAddComponent } from './prod-add/prod-add.component';
 import { ProdGetComponent } from './prod-get/prod-get.component';
 import { ProdEditComponent } from './prod-edit/prod-edit.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { ProdEditComponent } from './prod-edit/prod-edit.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
