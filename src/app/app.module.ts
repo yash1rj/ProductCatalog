@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProdAddComponent } from './prod-add/prod-add.component';
 import { ProdGetComponent } from './prod-get/prod-get.component';
+import { ProdEditComponent } from './prod-edit/prod-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProdAddComponent,
-    ProdGetComponent
+    ProdGetComponent,
+    ProdEditComponent
   ],
   imports: [
     BrowserModule,
