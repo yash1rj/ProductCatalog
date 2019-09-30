@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label for="prodname" class="sr-only mt-1">Product Name</label>
                 <input type="text" id="prodname" class="form-control" formControlName="prodname"
-                    placeholder="Product Name" [(ngModel)]="product.prodname">
+                    placeholder="Product Name" [(ngModel)]="prodname">
                 <p *ngIf="(prodUpdateForm.controls.prodname.dirty || prodUpdateForm.controls.prodname.touched) && this.prodUpdateForm.controls.prodname.errors"
                     class="text-danger">
                     Product name is required with atleast 3 characters</p>
@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="proddesc" class="sr-only mt-1">Product Description</label>
                 <textarea rows="7" cols="5" id="proddesc" class="form-control" formControlName="proddesc"
-                    placeholder="Product Description" [(ngModel)]="product.proddesc"></textarea>
+                    placeholder="Product Description" [(ngModel)]="proddesc"></textarea>
                 <p *ngIf="(prodUpdateForm.controls.proddesc.dirty || prodUpdateForm.controls.proddesc.touched) && this.prodUpdateForm.controls.proddesc.errors"
                     class="text-danger">
                     Product description is required with atleast 3 characters</p>
@@ -24,14 +24,14 @@
             <div class="form-group">
                 <label for="prodprice" class="sr-only mt-1">Product Price</label>
                 <input type="number" id="prodprice" class="form-control" formControlName="prodprice"
-                    placeholder="Product Price" [(ngModel)]="product.prodprice">
+                    placeholder="Product Price" [(ngModel)]="prodprice">
                 <p *ngIf="(prodUpdateForm.controls.prodprice.dirty || prodUpdateForm.controls.prodprice.touched) && this.prodUpdateForm.controls.prodprice.errors"
                     class="text-danger">
                     Product price is required</p>
             </div>
 
             <button (click)="updateProduct(prodname.value, proddesc.value, prodprice.value)"
-                class="btn btn-warning btn-block mt-4" type="submit" [disabled]="!prodUpdateForm.valid">Update
+                class="btn btn-warning btn-block mt-4" type="button" [disabled]="!prodUpdateForm.valid">Update
                 Product</button>
         </form>
     </div>
