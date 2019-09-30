@@ -11,20 +11,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">POCO F1</th>
-                        <td>Master of Speed</td>
-                        <td>21999</td>
-                        <td>
-                            <a [routerLink]="['/edit']" class="btn btn-primary">Edit</a>
-
-                            <a (click)="deleteProduct(product._id)" class="btn btn-danger float-right">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">MacBook Pro</th>
-                        <td>Stylish, lighweight Laptop</td>
-                        <td>106500</td>
+                    <tr *ngFor="let product of products">
+                        <th scope="row">{{ product.prodname }}</th>
+                        <td>{{ product.proddesc }}</td>
+                        <td>{{ product.prodprice }}</td>
                         <td>
                             <a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a>
                             
