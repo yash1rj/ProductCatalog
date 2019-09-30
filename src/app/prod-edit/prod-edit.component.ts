@@ -24,15 +24,22 @@ export class ProdEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.ps.getProduct(params.id).subscribe(res => {
-        this.product = res;
-        console.log("res: ", res);
+        this.product = {
+          prodname: res.prodname,
+          proddesc: res.proddesc,
+          prodprice: res.prodprice
+        };
+        // console.log("res: ", this.product);
+        this.prodUpdateForm.setValue(this.product);
       });
     });
   }
 
-  updateProduct(prodname, proddesc, prodprice, id) {
+  updateProduct() {
+    // console.log(this.prodUpdateForm.value);
     this.route.params.subscribe(params => {
-      this.ps.updateProduct(prodname, proddesc, prodprice, params.id);
+      // console.log(params.id);
+      this.ps.updateProduct(this.prodUpdateForm.value, params.id);
       this.router.navigate(['products']);
     });
   }
