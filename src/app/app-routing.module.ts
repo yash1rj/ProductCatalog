@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ProdAddComponent 
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: ProdEditComponent
   },
   { 
