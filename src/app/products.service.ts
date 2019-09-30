@@ -23,13 +23,8 @@ export class ProductsService {
     return <Observable<any>> this.http.get(this.url);
   }
 
-  updateProduct(prodname, proddesc, prodprice, id):Observable<any> {
-    const obj = {
-      prodname,
-      proddesc,
-      prodprice
-    };
-    console.log(obj);
+  updateProduct(obj, id):Observable<any> {
+    // console.log(obj);
     return <Observable<any>> this.http.put(`${this.url}/${id}`, obj);
   }
 
