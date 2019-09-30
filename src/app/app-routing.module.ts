@@ -3,12 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProdAddComponent } from './prod-add/prod-add.component';
 import { ProdGetComponent } from './prod-get/prod-get.component';
+import { ProdEditComponent } from './prod-edit/prod-edit.component';
 
 
 const routes: Routes = [
-  { path: 'products', component: ProdGetComponent },
-  { path: 'product/create', component: ProdAddComponent },
-  { path: '**', redirectTo: 'products', pathMatch: 'full' },
+  { 
+    path: 'products', 
+    component: ProdGetComponent 
+  },
+  { 
+    path: 'product/create', 
+    component: ProdAddComponent 
+  },
+  {
+    path: 'edit',
+    component: ProdEditComponent
+  },
+  { 
+    path: '**', 
+    redirectTo: 'products', 
+    pathMatch: 'full' 
+  }
 ];
 
 @NgModule({
