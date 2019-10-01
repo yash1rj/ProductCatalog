@@ -20,8 +20,8 @@ exports.products = (req, res) => {
 // Client sends a productId. ProductId is passed to Product Model’s findById method. 
 // JSON encoded product data is returned to client.
 exports.getproduct = (req, res) => {
-    var productId = req.params.productId;
-    Product.findById(mongoose.Types.ObjectId(productId), (err, product) => {
+    var productId = mongoose.Types.ObjectId(req.params.productId);
+    Product.findById(productId, (err, product) => {
     if (err) {
         res.send(err);
     }
@@ -50,7 +50,7 @@ exports.add = (req, res) => {
 // findOneAndUpdate method is used to update information of an existing product. 
 // On success JSON encoded updated product data is sent to client.
 exports.update = (req, res) => {
-    var id = mongoose.Types.ObjectId(req.query.productId);
+    var id = mongoose.Types.ObjectId(req.params.productId);
     Product.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, product) => {
         if(err) {
             res.send(err);
@@ -66,13 +66,13 @@ exports.update = (req, res) => {
 // Product Id parameter is passed by client and is further passed to remove method of 
 // Product schema. On successful deletion a message, otherwise an error is returned to client.
 exports.delete = (req, res) => {
-    var id = mongoose.Types.ObjectId(req.query.productId);
-    Product.remove({
+    var id = mongoose.Types.ObjectId(req.params.productId);
+    Product.deleteOne({
         _id: id
     }, (err, product) => {
         if(err) {
             res.send(err);
         }
         res.json("Product deleted successfully");
-    })
+    });
 };
