@@ -39,8 +39,15 @@ export class ProdEditComponent implements OnInit {
     // console.log(this.prodUpdateForm.value);
     this.route.params.subscribe(params => {
       // console.log(params.id);
-      this.ps.updateProduct(this.prodUpdateForm.value, params.id);
-      this.router.navigate(['products']);
+      this.ps.updateProduct(this.prodUpdateForm.value, params.id).subscribe(
+        (data)  => {
+          console.log("PUT Request is successful ", data);
+          this.router.navigate(['products']);
+        },
+        (error)  => {
+          console.log("Error", error);
+        }
+      );
     });
   }
 }
