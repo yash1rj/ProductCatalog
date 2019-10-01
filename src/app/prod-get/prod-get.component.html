@@ -17,8 +17,35 @@
                         <td>{{ product.prodprice }}</td>
                         <td>
                             <a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a>
-                            
-                            <a (click)="deleteProduct(product._id)" class="btn btn-danger float-right">Delete</a>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                Delete
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Do you really want to delete this record? This process cannot be undone.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                            <button (click)="deleteProduct(product._id)" data-dismiss="modal" type="button" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
