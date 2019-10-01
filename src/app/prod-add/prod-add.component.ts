@@ -32,7 +32,6 @@ export class ProdAddComponent implements OnInit {
         console.log("POST Request is successful ", data);
         this.prodAddForm.reset();
         this.router.navigate(['products']);
-        // this.registerservice.regSuccess(); 
       },
       (error)  => {
         console.log("Error", error);
