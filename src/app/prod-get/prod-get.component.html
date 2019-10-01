@@ -1,25 +1,26 @@
 <div id="productsContainer">
     <div class="container-fluid col-md-9 card mt-5">
-        <div class="card-body table-responsive">
+        <div class="card-body table-responsive-sm">
             <table class="table table-hover">
                 <thead>
-                    <tr class="table-success">
+                    <tr class="table-success table-bordered">
                         <th scope="col">Product Name</th>
                         <th scope="col">Product Description</th>
                         <th scope="col">Product Price</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" colspan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products" class="border-bottom">
                         <th scope="row">{{ product.prodname }}</th>
                         <td>{{ product.proddesc }}</td>
                         <td>{{ product.prodprice }}</td>
                         <td>
                             <a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a>
-
+                        </td>
+                        <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 Delete
                             </button>
@@ -41,7 +42,8 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Cancel</button>
-                                            <button (click)="deleteProduct(product._id)" data-dismiss="modal" type="button" class="btn btn-danger">Delete</button>
+                                            <button (click)="deleteProduct(product._id)" data-dismiss="modal"
+                                                type="button" class="btn btn-danger">Delete</button>
                                         </div>
                                     </div>
                                 </div>
