@@ -6,7 +6,7 @@ module.exports = (app) => {
 
     // product.products GET method is used for 
     // fetching all products and product.add POST method for adding a product
-    app.route("/products")
+    app.route("/api/products")
         .get(product.products)
         .post(product.add);
 
@@ -15,14 +15,14 @@ module.exports = (app) => {
     // product.getproduct controller method is used to get a single product information. 
     // To update a product information product.update method is defined. 
     // Next for deleting a product, delete method of controller is used.
-    app.route("/products/:productId")
+    app.route("/api/products/:productId")
         .get(product.getproduct)
         .put(product.update)
         .delete(product.delete);
 };
 
-// Create-----POST -> http://localhost:3000/products
-// Read all----GET -> http://localhost:3000/products
-// Read single-GET -> http://localhost:3000/products/getproduct/?productId=589a18039341bf7e6dad5f77
-// Update------PUT -> http://localhost:3000/products/update/?productId=589a18039341bf7e6dad5f77
-// Delete---DELETE -> http://localhost:3000/products/delete/?productId=589a18039341bf7e6dad5f77
+// Create-----POST -> http://localhost:3000/api/products
+// Read all----GET -> http://localhost:3000/api/products
+// Read single-GET -> http://localhost:3000/api/products/getproduct/?productId=589a18039341bf7e6dad5f77
+// Update------PUT -> http://localhost:3000/api/products/update/?productId=589a18039341bf7e6dad5f77
+// Delete---DELETE -> http://localhost:3000/api/products/delete/?productId=589a18039341bf7e6dad5f77
