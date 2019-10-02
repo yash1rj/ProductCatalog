@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/catalogger', { 
         console.log(err);
     })
 mongoose.set('useFindAndModify', false);
+mongoose.set('useUnifiedTopology', true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
