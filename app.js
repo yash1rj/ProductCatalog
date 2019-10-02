@@ -12,7 +12,7 @@ var Product = require('./productCatalog-API/restapi/model/productModel');
 var bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/catalogger', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/catalogger', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connection successful.")
     })
@@ -20,7 +20,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/catalogger', { 
         console.log(err);
     })
 mongoose.set('useFindAndModify', false);
-mongoose.set('useUnifiedTopology', true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
