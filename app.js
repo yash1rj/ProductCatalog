@@ -39,4 +39,5 @@ app.use((req, res) => {
 
 app.listen(port, function(){
     console.log('Product Catalog -  RESTful web services with Nodejs started on: ' + port);
+    console.log(process.env.MONGODB_URI);
 });
